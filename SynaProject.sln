@@ -7,7 +7,14 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Client", "build\Client\Clie
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Server", "build\Server\Server.vcxproj", "{5C62F282-6BAE-447B-806F-DB43A521D2BB}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ThirdLibrary", "ThirdLibrary\ThirdLibrary.vcxitems", "{45D41ACC-2C3C-43D2-BC10-02AA73FFC7C7}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		ThirdLibrary\ThirdLibrary.vcxitems*{145ff5af-3ad7-4a41-8a85-51a1f8735449}*SharedItemsImports = 4
+		ThirdLibrary\ThirdLibrary.vcxitems*{45d41acc-2c3c-43d2-bc10-02aa73ffc7c7}*SharedItemsImports = 9
+		ThirdLibrary\ThirdLibrary.vcxitems*{5c62f282-6bae-447b-806f-db43a521d2bb}*SharedItemsImports = 4
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86

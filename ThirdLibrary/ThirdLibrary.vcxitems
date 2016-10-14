@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <ItemsProjectGuid>{45d41acc-2c3c-43d2-bc10-02aa73ffc7c7}</ItemsProjectGuid>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(MSBuildThisFileDirectory)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\gason.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\gason.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\allocators.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\document.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\encodedstream.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\encodings.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\error\en.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\error\error.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\filereadstream.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\filewritestream.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\fwd.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\internal\biginteger.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\internal\diyfp.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\internal\dtoa.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\internal\ieee754.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\internal\itoa.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\internal\meta.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\internal\pow10.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\internal\regex.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\internal\stack.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\internal\strfunc.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\internal\strtod.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\internal\swap.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\istreamwrapper.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\memorybuffer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\memorystream.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\msinttypes\inttypes.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\msinttypes\stdint.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\ostreamwrapper.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\pointer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\prettywriter.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\rapidjson.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\reader.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\schema.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\stream.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\stringbuffer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\writer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\zmq.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\zmq_utils.h" />
+  </ItemGroup>
+</Project>
