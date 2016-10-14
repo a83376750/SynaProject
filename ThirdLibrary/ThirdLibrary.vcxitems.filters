@@ -126,10 +126,12 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\include\zmq_utils.h">
       <Filter>zeromq</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\Json.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\src\gason.cpp">
       <Filter>gason</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\Json.cpp" />
   </ItemGroup>
 </Project>

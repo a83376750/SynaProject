@@ -4,6 +4,7 @@
 #define JSON_ZONE_SIZE 4096
 #define JSON_STACK_SIZE 32
 
+using namespace gason;
 const char *jsonStrError(int err) {
     switch (err) {
 #define XX(no, str) \
@@ -114,6 +115,12 @@ static double string2double(char *s, char **endptr) {
 
     *endptr = s;
     return ch == '-' ? -result : result;
+}
+
+
+double String2Double(char *s, char **endptr)
+{
+	return string2double(s, endptr);
 }
 
 static inline JsonNode *insertAfter(JsonNode *tail, JsonNode *node) {
