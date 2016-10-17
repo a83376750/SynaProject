@@ -25,6 +25,8 @@ private:
 	vector<gason::JsonValue> m_vecGetValue;	//这是查找后的JsonValue
 };
 
+#include "rapidjson/rapidjson.h"
+#include "rapidjson/writer.h"
 class JsonWriter
 {
 public:
@@ -40,7 +42,7 @@ public:
 	JsonWriter& operator = (char *value);
 	JsonWriter& operator [] (char *key);
 public:
-	gason::JsonValue m_CurValue;
-	gason::JsonValue m_tail;
+
+	rapidjson::Writer<rapidjson::StringBuffer> m_writer;
 };
 
