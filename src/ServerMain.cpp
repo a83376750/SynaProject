@@ -58,20 +58,22 @@ int main(int argc, char *argv[])
 
 	//char sJson[] = "{\"praenomen\":\"Gaius\",\"nomen\":\"Julius\",\"cognomen\":\"Caezar\","
 	//	"\"born\":-100,\"died\":-44}";
-	char sJson[] = "{ \"zubie\": \"cad\", \"abc\": true, \"members\" : ["
+	//char sJson[] = "{ \"zubie\": \"cad\", \"abc\": true, \"members\" : ["
 
-	"{\"firstname\": false, \"lastname\" : \"h\", \"email\" : \"buzhidao\"},"
+	//"{\"firstname\": false, \"lastname\" : \"h\", \"email\" : \"buzhidao\"},"
 
-	"{ \"firstname\": \"eisheng\", \"lastname\" : \"i\", \"email\" : \"uzhidao\" },"
+	//"{ \"firstname\": \"eisheng\", \"lastname\" : \"i\", \"email\" : \"uzhidao\" },"
 
-	"{ \"firstname\": \"isheng\", \"lastname\" : \"j\", \"email\" : \"zhidao\" }]}";
+	//"{ \"firstname\": \"isheng\", \"lastname\" : \"j\", \"email\" : \"zhidao\" }]}";
 
-	Json json;
-	json.Parse(sJson);
-	string zubie = json["zubie"].AsString();
-	printf(zubie.c_str());
-	printf(json["members"].AsString(2, "lastname"));
-	bool abc = json["members"].Asbool(1,"firstname");
+	//Json json;
+	//json.Parse(sJson);
+	//string zubie = json["zubie"].AsString();
+	//printf(zubie.c_str());
+	//printf(json["members"].AsString(2, "lastname"));
+	//bool abc = json["members"].Asbool(1,"firstname");
+
+
 	//char *endptr;
 	//gason::JsonValue jsonValue;
 	//gason::JsonAllocator allocator;
@@ -87,6 +89,11 @@ int main(int argc, char *argv[])
 	//printf("%s%s\n", "string:", json.AsString("praenomen"));
 	//printf("%s%s\n", "string:", json.AsString("nomen"));
 	//printf("%s%s\n", "string:", json.AsString("cognomen"));
+
+
+
+	JsonWriter writer;
+	writer["hello"] = "world";
 	getchar();
 	return 0;
 }

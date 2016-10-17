@@ -25,3 +25,22 @@ private:
 	vector<gason::JsonValue> m_vecGetValue;	//这是查找后的JsonValue
 };
 
+class JsonWriter
+{
+public:
+	JsonWriter();
+	JsonWriter(char *value);
+	JsonWriter(int value);
+	JsonWriter(double value);
+	JsonWriter(float value);
+	JsonWriter(bool value);
+	bool WriteInt32(char *key, int value);
+	bool WriteObject(char *key, char *value);
+	JsonWriter& operator = (JsonWriter &rhf);
+	JsonWriter& operator = (char *value);
+	JsonWriter& operator [] (char *key);
+public:
+	gason::JsonValue m_CurValue;
+	gason::JsonValue m_tail;
+};
+

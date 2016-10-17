@@ -123,7 +123,7 @@ bool Json::Asbool(unsigned int index, char *key)
 					{
 						return true;
 					}
-					else if(i->value.getTag() == gason::JSON_FALSE)
+					else if (i->value.getTag() == gason::JSON_FALSE)
 					{
 						return false;
 					}
@@ -188,4 +188,45 @@ void Json::SaveMapInfo(gason::JsonValue &jsonValue)
 	default:
 		break;
 	}
+}
+
+JsonWriter::JsonWriter()
+{
+
+}
+
+JsonWriter& JsonWriter::operator=(char *value)
+{
+	//gason::JsonNode *node = new gason::JsonNode;
+	//node->value = gason::JsonValue(gason::JSON_STRING, value);
+	//node->next = nullptr;
+	//m_CurValue.toNode()->next
+	return *this;
+}
+
+
+
+JsonWriter& JsonWriter::operator=(JsonWriter &rhf)
+{
+	//gason::JsonNode *node = this->m_tail.toNode();
+	//while(strcmp(node->key, rhf.m_tail.toNode()->key))
+	//{
+	//	if(node->next == NULL)
+	//		break;
+	//	node = node->next;
+	//}
+	//if (node->next != NULL)
+	//{
+	//	gason::JsonNode *tmp = node->next;
+	//	node->next = rhf.m_tail.toNode();
+	//	node->next->next = tmp;
+	//}
+	//else
+	//	node->next = rhf.m_tail.toNode();
+	return *this;
+}
+
+JsonWriter& JsonWriter::operator[](char *key)
+{
+	return *this;
 }
