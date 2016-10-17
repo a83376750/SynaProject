@@ -6,21 +6,27 @@ double sum_and_print(JsonValue o) {
 	double sum = 0;
 	switch (o.getTag()) {
 	case JSON_NUMBER:
-		printf("%g\n", o.toNumber());
+		printf("Number");
+		printf("%g", o.toNumber());
 		sum += o.toNumber();
 		break;
 	case JSON_STRING:
-		printf("\"%s\"\n", o.toString());
+		printf("string");
+		printf("\"%s\"", o.toString());
 		break;
 	case JSON_ARRAY:
 		for (auto i : o) {
+			printf("Array:{");
 			sum += sum_and_print(i->value);
 		}
+		printf("Array}\n");
 		break;
 	case JSON_OBJECT:
 		for (auto i : o) {
+			printf("obj:{");
 			printf("%s = ", i->key);
 			sum += sum_and_print(i->value);
+			printf("obj}\n");
 		}
 		break;
 	case JSON_TRUE:
@@ -52,17 +58,20 @@ int main(int argc, char *argv[])
 
 	//char sJson[] = "{\"praenomen\":\"Gaius\",\"nomen\":\"Julius\",\"cognomen\":\"Caezar\","
 	//	"\"born\":-100,\"died\":-44}";
-	char sJson[] = "{ \"zubie\": \"cad\",\"members\" : ["
+	char sJson[] = "{ \"zubie\": \"cad\", \"abc\": true, \"members\" : ["
 
-	"{\"firstname\": \"peisheng\", \"lastname\" : \"h\", \"email\" : \"buzhidao\"},"
+	"{\"firstname\": false, \"lastname\" : \"h\", \"email\" : \"buzhidao\"},"
 
-	"{ \"firstname\": \"peisheng\", \"lastname\" : \"h\", \"email\" : \"buzhidao\" },"
+	"{ \"firstname\": \"eisheng\", \"lastname\" : \"i\", \"email\" : \"uzhidao\" },"
 
-	"{ \"firstname\": \"peisheng\", \"lastname\" : \"h\", \"email\" : \"buzhidao\" }]}";
+	"{ \"firstname\": \"isheng\", \"lastname\" : \"j\", \"email\" : \"zhidao\" }]}";
 
 	Json json;
 	json.Parse(sJson);
-
+	string zubie = json["zubie"].AsString();
+	printf(zubie.c_str());
+	printf(json["members"].AsString(2, "lastname"));
+	bool abc = json["members"].Asbool(1,"firstname");
 	//char *endptr;
 	//gason::JsonValue jsonValue;
 	//gason::JsonAllocator allocator;
