@@ -19,7 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\Server.cpp" />
     <ClCompile Include="..\..\src\ServerMain.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\Server.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{5C62F282-6BAE-447B-806F-DB43A521D2BB}</ProjectGuid>

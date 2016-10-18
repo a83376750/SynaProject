@@ -2,46 +2,6 @@
 #include "Json.h"
 #include "gason.h"
 #include "Log.h"
-using namespace gason;
-double sum_and_print(JsonValue o) {
-	double sum = 0;
-	switch (o.getTag()) {
-	case JSON_NUMBER:
-		printf("Number");
-		printf("%g", o.toNumber());
-		sum += o.toNumber();
-		break;
-	case JSON_STRING:
-		printf("string");
-		printf("\"%s\"", o.toString());
-		break;
-	case JSON_ARRAY:
-		for (auto i : o) {
-			printf("Array:{");
-			sum += sum_and_print(i->value);
-		}
-		printf("Array}\n");
-		break;
-	case JSON_OBJECT:
-		for (auto i : o) {
-			printf("obj:{");
-			printf("%s = ", i->key);
-			sum += sum_and_print(i->value);
-			printf("obj}\n");
-		}
-		break;
-	case JSON_TRUE:
-		fprintf(stdout, "true");
-		break;
-	case JSON_FALSE:
-		fprintf(stdout, "false");
-		break;
-	case JSON_NULL:
-		printf("null\n");
-		break;
-	}
-	return sum;
-}
 
 int main(int argc, char *argv[])
 {
@@ -56,11 +16,11 @@ int main(int argc, char *argv[])
 			printf("%s\n", argv[i]);
 		}
 	}
-	Log l;
 	getchar();
 	return 0;
 }
 
+using namespace gason;
 
 void testJsonReaderAndWriter()
 {
@@ -110,4 +70,44 @@ void testJsonReaderAndWriter()
 	JsonReader reader;
 	reader.Parse(stackJson);
 	cout << reader["hello"].AsString() << endl;
+}
+
+double sum_and_print(JsonValue o) {
+	double sum = 0;
+	switch (o.getTag()) {
+	case JSON_NUMBER:
+		printf("Number");
+		printf("%g", o.toNumber());
+		sum += o.toNumber();
+		break;
+	case JSON_STRING:
+		printf("string");
+		printf("\"%s\"", o.toString());
+		break;
+	case JSON_ARRAY:
+		for (auto i : o) {
+			printf("Array:{");
+			sum += sum_and_print(i->value);
+		}
+		printf("Array}\n");
+		break;
+	case JSON_OBJECT:
+		for (auto i : o) {
+			printf("obj:{");
+			printf("%s = ", i->key);
+			sum += sum_and_print(i->value);
+			printf("obj}\n");
+		}
+		break;
+	case JSON_TRUE:
+		fprintf(stdout, "true");
+		break;
+	case JSON_FALSE:
+		fprintf(stdout, "false");
+		break;
+	case JSON_NULL:
+		printf("null\n");
+		break;
+	}
+	return sum;
 }
