@@ -16,10 +16,12 @@
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\src\gason.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\src\Json.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\Log.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\include\gason.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\include\Json.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\Log.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\allocators.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\document.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\encodedstream.h" />
@@ -55,6 +57,38 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\stream.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\stringbuffer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\writer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\async_logger.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\common.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\details\async_logger_impl.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\details\async_log_helper.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\details\file_helper.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\details\logger_impl.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\details\log_msg.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\details\mpmc_bounded_q.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\details\null_mutex.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\details\os.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\details\pattern_formatter_impl.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\details\registry.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\details\spdlog_impl.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\fmt\bundled\printf.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\fmt\fmt.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\fmt\ostr.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\formatter.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\logger.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\sinks\android_sink.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\sinks\ansicolor_sink.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\sinks\base_sink.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\sinks\dist_sink.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\sinks\file_sinks.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\sinks\msvc_sink.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\sinks\null_sink.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\sinks\ostream_sink.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\sinks\sink.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\sinks\stdout_sinks.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\sinks\syslog_sink.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\sinks\wincolor_sink.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\spdlog.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\tweakme.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\include\zmq.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\include\zmq_utils.h" />
   </ItemGroup>

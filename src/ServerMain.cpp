@@ -42,6 +42,7 @@ double sum_and_print(JsonValue o) {
 	return sum;
 }
 
+#include "spdlog/spdlog.h"
 int main(int argc, char *argv[])
 {
 	if (argc <= 0)

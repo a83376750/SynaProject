@@ -10,6 +10,9 @@
     <Filter Include="zeromq">
       <UniqueIdentifier>{36ec4f55-58e1-45f6-904a-9737d0f3e3d8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="spdlog">
+      <UniqueIdentifier>{16e4640a-ac3a-4750-a5f3-f49b0b5b5430}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\allocators.h">
@@ -127,11 +130,109 @@
       <Filter>zeromq</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\include\Json.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\Log.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\async_logger.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\common.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\details\async_logger_impl.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\details\async_log_helper.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\details\file_helper.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\details\logger_impl.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\details\log_msg.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\details\mpmc_bounded_q.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\details\null_mutex.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\details\os.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\details\pattern_formatter_impl.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\details\registry.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\details\spdlog_impl.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\fmt\bundled\printf.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\fmt\fmt.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\fmt\ostr.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\formatter.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\logger.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\sinks\android_sink.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\sinks\ansicolor_sink.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\sinks\base_sink.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\sinks\dist_sink.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\sinks\file_sinks.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\sinks\msvc_sink.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\sinks\null_sink.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\sinks\ostream_sink.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\sinks\sink.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\sinks\stdout_sinks.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\sinks\syslog_sink.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\sinks\wincolor_sink.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\spdlog.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\tweakme.h">
+      <Filter>spdlog</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\src\gason.cpp">
       <Filter>gason</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\src\Json.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\Log.cpp" />
   </ItemGroup>
 </Project>
