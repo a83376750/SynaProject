@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Json.h"
 #include "gason.h"
+#include "Log.h"
 using namespace gason;
 double sum_and_print(JsonValue o) {
 	double sum = 0;
@@ -42,7 +43,6 @@ double sum_and_print(JsonValue o) {
 	return sum;
 }
 
-#include "spdlog/spdlog.h"
 int main(int argc, char *argv[])
 {
 	if (argc <= 0)
@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
 			printf("%s\n", argv[i]);
 		}
 	}
-
+	Log l;
 	getchar();
 	return 0;
 }
