@@ -2,17 +2,17 @@
 #include <string>
 #include <assert.h>
 
-Json::Json()
+JsonReader::JsonReader()
 {
 
 }
 
 
-Json::~Json()
+JsonReader::~JsonReader()
 {
 }
 
-Json& Json::operator[](const char *key)
+JsonReader& JsonReader::operator[](const char *key)
 {
 	m_vecGetValue.clear();
 
@@ -33,7 +33,7 @@ Json& Json::operator[](const char *key)
 	return *this;
 }
 
-bool Json::Parse(char *sJson)
+bool JsonReader::Parse(char *sJson)
 {
 	char *endptr;
 	int status = jsonParse(sJson, &endptr, &m_JsonValue, m_Allocator);
@@ -45,7 +45,7 @@ bool Json::Parse(char *sJson)
 	return true;
 }
 
-double Json::AsNumber(unsigned int index, char *key)
+double JsonReader::AsNumber(unsigned int index, char *key)
 {
 	assert(m_vecGetValue.size() > index);
 	auto value = m_vecGetValue.begin() + index;
@@ -65,7 +65,7 @@ double Json::AsNumber(unsigned int index, char *key)
 	return NULL;		//这里最好就是抛异常
 }
 
-int Json::AsInt(unsigned int index, char *key)
+int JsonReader::AsInt(unsigned int index, char *key)
 {
 	assert(m_vecGetValue.size() > index);
 	auto value = m_vecGetValue.begin() + index;
@@ -85,7 +85,7 @@ int Json::AsInt(unsigned int index, char *key)
 	return NULL;		//这里最好就是抛异常	
 }
 
-char* Json::AsString(unsigned int index, char *key)
+char* JsonReader::AsString(unsigned int index, char *key)
 {
 	assert(m_vecGetValue.size() > index);
 	auto value = m_vecGetValue.begin() + index;
@@ -108,7 +108,7 @@ char* Json::AsString(unsigned int index, char *key)
 
 
 
-bool Json::Asbool(unsigned int index, char *key)
+bool JsonReader::Asbool(unsigned int index, char *key)
 {
 	assert(m_vecGetValue.size() > index);
 	auto value = m_vecGetValue.begin() + index;
@@ -150,7 +150,7 @@ bool Json::Asbool(unsigned int index, char *key)
 	return false;		//这里最好就是抛异常
 }
 
-void Json::SaveMapInfo(gason::JsonValue &jsonValue)
+void JsonReader::SaveMapInfo(gason::JsonValue &jsonValue)
 {
 
 	gason::JsonTag tag = jsonValue.getTag();
@@ -192,41 +192,131 @@ void Json::SaveMapInfo(gason::JsonValue &jsonValue)
 
 JsonWriter::JsonWriter()
 {
-
+	m_writer.Reset(m_strBuffer);
 }
 
-JsonWriter& JsonWriter::operator=(char *value)
+void JsonWriter::WriteInt32(char *key, int value)
 {
-	//gason::JsonNode *node = new gason::JsonNode;
-	//node->value = gason::JsonValue(gason::JSON_STRING, value);
-	//node->next = nullptr;
-	//m_CurValue.toNode()->next
+	m_writer.Key(key);
+	m_writer.Int(value);
+}
+
+void JsonWriter::WriteInt64(char *key, int64_t value)
+{
+	m_writer.Key(key);
+	m_writer.Int64(value);
+}
+
+void JsonWriter::WriteUInt32(char *key, uint32_t value)
+{
+	m_writer.Key(key);
+	m_writer.Uint(value);
+}
+
+void JsonWriter::WriteUInt64(char *key, uint64_t value)
+{
+	m_writer.Key(key);
+	m_writer.Uint64(value);
+}
+
+void JsonWriter::WriteDouble(char *key, double value)
+{
+	m_writer.Key(key);
+	m_writer.Double(value);
+}
+
+void JsonWriter::WriteString(char *key, const char *value)
+{
+	m_writer.Key(key);
+	m_writer.String(value);
+}
+
+void JsonWriter::WriteNull(char *key)
+{
+	m_writer.Key(key);
+	m_writer.Null();
+}
+
+JsonWriter& JsonWriter::operator=(int value)
+{
+	m_writer.Int(value);
+	return *this;
+}
+
+JsonWriter& JsonWriter::operator=(int64_t value)
+{
+	m_writer.Int64(value);
+	return *this;
+}
+
+JsonWriter& JsonWriter::operator=(uint32_t value)
+{
+	m_writer.Uint(value);
 	return *this;
 }
 
 
-
-JsonWriter& JsonWriter::operator=(JsonWriter &rhf)
+JsonWriter& JsonWriter::operator=(const char *value)
 {
-	//gason::JsonNode *node = this->m_tail.toNode();
-	//while(strcmp(node->key, rhf.m_tail.toNode()->key))
-	//{
-	//	if(node->next == NULL)
-	//		break;
-	//	node = node->next;
-	//}
-	//if (node->next != NULL)
-	//{
-	//	gason::JsonNode *tmp = node->next;
-	//	node->next = rhf.m_tail.toNode();
-	//	node->next->next = tmp;
-	//}
-	//else
-	//	node->next = rhf.m_tail.toNode();
+	if (value == nullptr)
+	{
+		m_writer.Null();
+	}
+	else
+	{
+		m_writer.String(value);
+	}
 	return *this;
+}
+
+
+JsonWriter& JsonWriter::operator=(uint64_t value)
+{
+	m_writer.Uint64(value);
+	return *this;
+}
+
+JsonWriter& JsonWriter::operator=(double value)
+{
+	m_writer.Double(value);
+	return *this;
+}
+
+void JsonWriter::WriteStartObject(char *key)
+{
+	m_writer.StartObject();
+	if(key != nullptr)
+		m_writer.Key(key);
+}
+
+void JsonWriter::WriteStartArray(char *key)
+{
+	m_writer.StartArray();
+	if (key != nullptr)
+		m_writer.Key(key);
+}
+
+
+void JsonWriter::WriteEndObject()
+{
+	m_writer.EndObject();
+}
+
+void JsonWriter::WriteEndArray()
+{
+	m_writer.EndArray();
+}
+
+const char* JsonWriter::ToChar()
+{
+	if (m_writer.IsComplete())
+		return m_strBuffer.GetString();
+	else
+		return nullptr;
 }
 
 JsonWriter& JsonWriter::operator[](char *key)
 {
+	m_writer.Key(key);
 	return *this;
 }

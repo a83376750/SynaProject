@@ -93,7 +93,17 @@ int main(int argc, char *argv[])
 
 
 	JsonWriter writer;
+	writer.WriteStartObject();
 	writer["hello"] = "world";
+	writer["dll"] = nullptr;
+	writer.WriteEndObject();
+	string json = writer.ToChar();
+	cout << json.c_str() << endl;
+	char stackJson[100];
+	strcpy_s(stackJson, json.c_str());
+	JsonReader reader;
+	reader.Parse(stackJson);
+	cout << reader["hello"].AsString() << endl;
 	getchar();
 	return 0;
 }
