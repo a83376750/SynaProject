@@ -227,6 +227,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\tweakme.h">
       <Filter>spdlog</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\Ini.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\src\gason.cpp">
@@ -234,5 +235,6 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\src\Json.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\src\Log.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\Ini.cpp" />
   </ItemGroup>
 </Project>

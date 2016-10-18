@@ -2,6 +2,7 @@
 #include "Json.h"
 #include "gason.h"
 #include "Log.h"
+#include "Server.h"
 
 int main(int argc, char *argv[])
 {
@@ -16,6 +17,9 @@ int main(int argc, char *argv[])
 			printf("%s\n", argv[i]);
 		}
 	}
+
+	Server sr;
+	sr.StartServer();
 	getchar();
 	return 0;
 }

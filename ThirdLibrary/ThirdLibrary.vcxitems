@@ -15,11 +15,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\src\gason.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\Ini.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\src\Json.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\src\Log.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\include\gason.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\Ini.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\include\Json.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\include\Log.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\include\rapidjson\allocators.h" />

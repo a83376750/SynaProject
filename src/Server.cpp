@@ -1,6 +1,6 @@
 #include "Server.h"
 #include "Log.h"
-
+#include "Ini.h"
 Server::Server()
 {
 	m_ctx = zmq_ctx_new();
@@ -16,7 +16,12 @@ Server::~Server()
 
 int Server::StartServer()
 {
-	char address[24] = "tcp://*:8080";
+	Ini ini;
+	ini.SetPath(INI_PATH);
+	
+	char address[24];
+	ini.ReadString("CONFIG", "address", address);
+
 	int rc = zmq_bind(m_socket, address);
 	return rc;
 }
@@ -40,8 +45,9 @@ int Server::Recv(void *buffer, size_t len)
 		unsigned char *sBuffer = new unsigned char[len];
 		sprintf_s((char*)sBuffer, len, "%02x", buffer);
 		log->info("读取的buffer:{}", sBuffer);
+		delete[] sBuffer;
+		return 0;
 	}
-	return 0;
 }
 
 int Server::Send(void *buffer, size_t len)
@@ -64,6 +70,7 @@ int Server::Send(void *buffer, size_t len)
 		unsigned char *sBuffer = new unsigned char[len];
 		sprintf_s((char*)sBuffer, len, "%02x", buffer);
 		log->info("写入的buffer:{}", sBuffer);
+		delete[] sBuffer;
+		return 0;
 	}
-	return 0;
 }
