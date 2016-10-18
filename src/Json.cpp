@@ -60,7 +60,8 @@ double JsonReader::AsNumber(unsigned int index, char *key)
 				}
 			}
 		}
-		return value->toNumber();
+		else if(value->getTag() == gason::JSON_NUMBER)
+			return value->toNumber();
 	}
 	return NULL;		//这里最好就是抛异常
 }
@@ -80,7 +81,8 @@ int JsonReader::AsInt(unsigned int index, char *key)
 				}
 			}
 		}
-		return static_cast<int>(value->toNumber());
+		else if(value->getTag() == gason::JSON_NUMBER)
+			return static_cast<int>(value->toNumber());
 	}
 	return NULL;		//这里最好就是抛异常	
 }
@@ -100,10 +102,10 @@ char* JsonReader::AsString(unsigned int index, char *key)
 				}
 			}
 		}
-		else
+		else if (value->getTag() == gason::JSON_STRING)
 			return value->toString();
 	}
-	return NULL;		//这里最好就是抛异常
+	return nullptr;		//这里最好就是抛异常
 }
 
 
@@ -134,7 +136,7 @@ bool JsonReader::Asbool(unsigned int index, char *key)
 				}
 			}
 		}
-		if (value->getTag() == gason::JSON_TRUE)
+		else if (value->getTag() == gason::JSON_TRUE)
 		{
 			return true;
 		}
@@ -142,12 +144,31 @@ bool JsonReader::Asbool(unsigned int index, char *key)
 		{
 			return false;
 		}
-		else
-		{
-			assert(0);
-		}
 	}
 	return false;		//这里最好就是抛异常
+}
+
+bool JsonReader::AsNull(unsigned int index /*= 0*/, char *key /*= ""*/)
+{
+	assert(m_vecGetValue.size() > index);
+	auto value = m_vecGetValue.begin() + index;
+	if (value != m_vecGetValue.end())
+	{
+		if (value->getTag() == gason::JSON_OBJECT)
+		{
+			for (auto i : *value) {
+				if (!strcmp(i->key, key))
+				{
+					assert(i->value.getTag() == gason::JSON_NULL);
+					return true;
+				}
+			}
+			return false;
+		}
+		else if (value->getTag() == gason::JSON_NULL)
+			return true;
+	}
+	return false;
 }
 
 void JsonReader::SaveMapInfo(gason::JsonValue &jsonValue)

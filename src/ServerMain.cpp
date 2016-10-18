@@ -56,6 +56,13 @@ int main(int argc, char *argv[])
 		}
 	}
 
+	getchar();
+	return 0;
+}
+
+
+void testJsonReaderAndWriter()
+{
 	//char sJson[] = "{\"praenomen\":\"Gaius\",\"nomen\":\"Julius\",\"cognomen\":\"Caezar\","
 	//	"\"born\":-100,\"died\":-44}";
 	//char sJson[] = "{ \"zubie\": \"cad\", \"abc\": true, \"members\" : ["
@@ -90,8 +97,6 @@ int main(int argc, char *argv[])
 	//printf("%s%s\n", "string:", json.AsString("nomen"));
 	//printf("%s%s\n", "string:", json.AsString("cognomen"));
 
-
-
 	JsonWriter writer;
 	writer.WriteStartObject();
 	writer["hello"] = "world";
@@ -104,6 +109,4 @@ int main(int argc, char *argv[])
 	JsonReader reader;
 	reader.Parse(stackJson);
 	cout << reader["hello"].AsString() << endl;
-	getchar();
-	return 0;
 }
