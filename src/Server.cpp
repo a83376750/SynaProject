@@ -43,15 +43,23 @@ int Server::Recv(void *buffer, size_t len)
 
 	if (nBytes != len)
 	{
-		sptrLog->info("大小不一致,读取大小:{},实际大小:{}", nBytes, len);
+		sptrLog->error("大小不一致,读取大小:{},实际大小:{}", nBytes, len);
 		return -1;
 	}
 	else
 	{
-		unsigned char *sBuffer = new unsigned char[len];
-		sprintf_s((char*)sBuffer, len, "%02x", buffer);
-		sptrLog->info("读取的buffer:{}", sBuffer);
-		delete[] sBuffer;
+		unsigned char *str = (unsigned char*)buffer;
+		char cStr[6];
+		std::string outputInfo;
+		for (int i = 0; i < len; ++i)
+		{
+			if (i % 10 == 0)
+				outputInfo.append("\n");
+			sprintf_s(cStr, "%02x ", str[i]);
+			outputInfo.append(cStr);
+
+		}
+		sptrLog->info("写入的buffer:{}\nbuffer 大小:{}", outputInfo, len);
 		return 0;
 	}
 }
@@ -68,7 +76,7 @@ int Server::Send(void *buffer, size_t len)
 
 	if (nBytes != len)
 	{
-		sptrLog->info("大小不一致,写入大小:{},实际大小:{}", nBytes, len);
+		sptrLog->error("大小不一致,写入大小:{},实际大小:{}", nBytes, len);
 		return -1;
 	}
 	else

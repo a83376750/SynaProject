@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 
 	Server sr;
 	int re = sr.StartServer();
-	assert(re);
+	assert(re == 0);
 	std::thread tdSend(AllRecv, sr);
 	//std::thread tdRecv(AllSend, sr);
 	AllSend(sr);
