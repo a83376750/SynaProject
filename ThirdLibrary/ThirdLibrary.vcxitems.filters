@@ -130,7 +130,6 @@
       <Filter>zeromq</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\include\Json.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)..\include\Log.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\include\spdlog\async_logger.h">
       <Filter>spdlog</Filter>
     </ClInclude>
@@ -234,7 +233,6 @@
       <Filter>gason</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\src\Json.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\src\Log.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\src\Ini.cpp" />
   </ItemGroup>
 </Project>

@@ -55,7 +55,7 @@ void Ini::SetPath(const char *sPath)
 	m_sPath = sPath;
 }
 
-
+//数据越界待找
 #ifndef WIN32
 long Ini::PackagingFunction(const char *lpAppName, const char *lpKeyName, const char *lpDefault, char *lpReturnedString, unsigned long nSize, const char *lpFileName)
 {

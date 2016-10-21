@@ -1,8 +1,11 @@
 #include <iostream>
 #include "Json.h"
 #include "gason.h"
-#include "Log.h"
 #include "Server.h"
+#include <thread>
+
+void AllRecv(Server &sr);
+void AllSend(Server &sr);
 
 int main(int argc, char *argv[])
 {
@@ -19,10 +22,35 @@ int main(int argc, char *argv[])
 	}
 
 	Server sr;
-	sr.StartServer();
-	getchar();
+	int re = sr.StartServer();
+	assert(re);
+	std::thread tdSend(AllRecv, sr);
+	//std::thread tdRecv(AllSend, sr);
+	AllSend(sr);
 	return 0;
 }
+
+void AllRecv(Server &sr)
+{
+	char str[1024];
+	while (1)
+	{
+		sr.Recv(str, 1024);
+		std::cout << str << std::endl;
+	}
+}
+
+void AllSend(Server &sr)
+{
+	char str[1024];
+
+	while (1)
+	{
+		std::cin >> str;
+		sr.Send(str, strlen(str));
+	}
+}
+
 
 using namespace gason;
 
